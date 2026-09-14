@@ -356,6 +356,10 @@ class Handler(http.server.BaseHTTPRequestHandler):
             self._send(200, "text/plain; charset=utf-8", b"pong")
             return
 
+        if route == "/healthz":
+            self._send(200, "text/plain; charset=utf-8", b"ok")
+            return
+
         if route == "/capabilities":
             self._send_json(200, {"ytdlp": downloads.have_ytdlp()})
             return
