@@ -1,0 +1,506 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
+<title>BatSaver — Pinterest, YouTube, TikTok, Instagram &amp; X Video Saver (Free)</title>
+<meta name="description" content="BatSaver — free video saver for Pinterest, YouTube, TikTok, Instagram, X/Twitter, Reddit, Facebook and more. Paste a link, pick quality, save the original file — no watermark, no sign-up.">
+<meta name="keywords" content="pinterest video saver, youtube video saver, tiktok video saver, instagram video saver, x video saver, twitter video saver, reddit video saver, facebook video saver, vimeo video saver, video downloader, no watermark video saver">
+<link rel="canonical" href="https://batsaver.vercel.app/">
+<meta name="robots" content="index, follow, max-image-preview:large">
+<meta property="og:type" content="website">
+<meta property="og:site_name" content="BatSaver">
+<meta property="og:title" content="Download Videos from TikTok, YouTube, Instagram &amp; More — Free, No Watermark">
+<meta property="og:description" content="Paste a link from TikTok, YouTube, Instagram, X/Twitter, Reddit or Pinterest. Pick quality and save the original file. No sign-up needed.">
+<meta property="og:url" content="https://batsaver.vercel.app/">
+<meta property="og:image" content="https://batsaver.vercel.app/og.png">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:title" content="BatSaver — Pinterest &amp; YouTube Video Saver | Free, No Watermark">
+<meta name="twitter:description" content="Paste any video link, pick quality, save the original. TikTok, YouTube, Instagram, X, Reddit, Pinterest — free, no watermark.">
+<meta name="twitter:image" content="https://batsaver.vercel.app/og.png">
+<meta name="theme-color" content="#ffffff">
+<meta name="mobile-web-app-capable" content="yes">
+<meta name="apple-mobile-web-app-capable" content="yes">
+<meta name="apple-mobile-web-app-status-bar-style" content="default">
+<meta name="apple-mobile-web-app-title" content="BatSaver">
+<script type="application/ld+json">
+{"@context":"https://schema.org","@graph":[
+  {"@type":"WebApplication","name":"BatSaver","alternateName":"Pinterest video saver, YouTube video saver, TikTok video saver, Instagram video saver, X video saver","url":"https://batsaver.vercel.app/","description":"BatSaver — free video saver for Pinterest, YouTube, TikTok, Instagram, X/Twitter, Reddit, Facebook and more. Paste a link, pick quality, save the original file without watermarks.","keywords":["pinterest video saver","youtube video saver","tiktok video saver","instagram video saver","x video saver","twitter video saver","reddit video saver","facebook video saver","video downloader","no watermark"],"applicationCategory":"MultimediaApplication","operatingSystem":"All","offers":{"@type":"Offer","price":"0","priceCurrency":"USD"}},
+  {"@type":"FAQPage","mainEntity":[
+    {"@type":"Question","name":"Which platforms can I save from?","acceptedAnswer":{"@type":"Answer","text":"BatSaver works as a Pinterest video saver, YouTube video saver, TikTok video saver, Instagram video saver, X/Twitter video saver, Reddit video saver and more — any website that exposes video or image meta tags."}},
+    {"@type":"Question","name":"Does the download have a watermark?","acceptedAnswer":{"@type":"Answer","text":"No. It downloads the original file directly from the platform's servers, so you get the clean version."}},
+    {"@type":"Question","name":"Will it work on my phone?","acceptedAnswer":{"@type":"Answer","text":"Yes. It works on iOS Safari, Chrome on Android, and all modern mobile browsers."}},
+    {"@type":"Question","name":"Can I download private videos?","acceptedAnswer":{"@type":"Answer","text":"No — only public content can be downloaded. Private or restricted content requires the owner's permission."}},
+    {"@type":"Question","name":"The video plays instead of downloading — what do I do?","acceptedAnswer":{"@type":"Answer","text":"On a computer, right-click and choose Save video as. On iPhone, hold the video and tap Save Video. On Android, tap the menu and choose Download."}}
+  ]}
+]}
+</script>
+<link rel="icon" href="bat-logo.png">
+<link rel="apple-touch-icon" href="bat-logo.png">
+<style>
+  :root{--red:#fff;--red-dark:#e6e6e6;--ink:#f5f5f5;--muted:#a1a1a1;--bg:#0a0a0a;--surface:#141414;--border:#2b2b2b;--field:#1e1e1e;--radius:16px;--font:-apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,Helvetica,Arial,sans-serif}
+  *{margin:0;padding:0;box-sizing:border-box}
+  html{scroll-behavior:smooth}
+  body{font-family:var(--font);background:var(--bg);color:var(--ink);line-height:1.55;-webkit-tap-highlight-color:transparent}
+  a{color:var(--red);text-decoration:none}
+  a:hover{text-decoration:underline}
+  code{font-family:"SFMono-Regular",Consolas,monospace;font-size:.85em;background:var(--field);padding:1px 5px;border-radius:4px}
+  .header{background:var(--surface);border-bottom:1px solid var(--border);position:sticky;top:0;z-index:10}
+  .header-inner{max-width:760px;margin:0 auto;padding:0 20px;height:60px;display:flex;align-items:center;justify-content:space-between}
+  .brand{display:flex;align-items:center;gap:8px;font-weight:700;font-size:1.05rem;color:var(--ink);text-decoration:none}
+  .brand:hover{text-decoration:none}
+  .brand svg{width:22px;height:22px}
+  .nav-links{display:flex;gap:20px}
+  .nav-links a{color:var(--muted);font-size:0.9rem}
+  .wrap{max-width:760px;margin:0 auto;padding:48px 20px 20px}
+  .hero h1{font-size:clamp(1.7rem,5vw,2.4rem);font-weight:800;letter-spacing:-0.02em;line-height:1.15}
+  .hero h1 .red{color:var(--red)}
+  .hero p{color:var(--muted);margin-top:10px;font-size:1.05rem}
+  .platforms-row{display:flex;flex-wrap:wrap;gap:6px;margin-top:14px}
+  .platforms-row .pp{display:inline-flex;align-items:center;gap:6px;background:#fff;color:#111;font-size:0.78rem;font-weight:700;padding:5px 12px;border-radius:999px;white-space:nowrap}
+  .pp svg,.plats .p svg{width:14px;height:14px;flex:none}
+  .brand .logo-img{width:28px;height:28px;border-radius:8px;object-fit:cover}
+  .card{background:var(--surface);border:1px solid var(--border);border-radius:var(--radius);box-shadow:0 1px 2px rgba(0,0,0,.04),0 4px 16px rgba(0,0,0,.05);padding:24px;margin-top:28px}
+  .label{display:flex;justify-content:space-between;align-items:baseline;margin-bottom:8px}
+  .label span{font-size:0.85rem;font-weight:600;color:var(--ink)}
+  .label small{color:var(--muted);font-size:0.8rem}
+  .row{display:flex;gap:8px}
+  .row input{flex:1;min-width:0;font:inherit;font-size:0.95rem;color:var(--ink);background:var(--field);border:1px solid transparent;border-radius:12px;padding:12px 14px;outline:none;-webkit-appearance:none;appearance:none}
+  .row input:focus{border-color:var(--red);background:var(--surface);box-shadow:0 0 0 3px rgba(255,255,255,.12)}
+  .row input::placeholder{color:#8a8a8a}
+  .btn{font:inherit;font-weight:700;font-size:0.95rem;color:#000;background:var(--red);border:none;border-radius:12px;padding:12px 20px;min-height:46px;cursor:pointer;display:inline-flex;align-items:center;justify-content:center;gap:7px;white-space:nowrap;transition:background .15s;-webkit-appearance:none;appearance:none}
+  .btn:hover{background:var(--red-dark)}
+  .btn:disabled{opacity:.55;cursor:wait}
+  .btn svg{width:15px;height:15px}
+  .examples{margin-top:12px;font-size:0.85rem;color:var(--muted);display:flex;gap:12px;flex-wrap:wrap;align-items:center}
+  .sample{background:none;border:none;cursor:pointer;font:inherit;color:var(--red);font-weight:600;padding:0}
+  .sample:hover{text-decoration:underline}
+  .text-link{background:none;border:none;color:var(--muted);font:inherit;font-size:0.85rem;cursor:pointer;padding:0}
+  .text-link:hover{color:var(--red);text-decoration:underline}
+  .copy-help details{margin-top:14px;font-size:0.85rem;color:var(--muted);border:1px dashed var(--border);border-radius:10px;padding:10px 12px}
+  .copy-help summary{cursor:pointer;font-weight:600;color:var(--ink)}
+  .copy-help p{margin-top:8px}
+  .copy-help b{color:var(--ink)}
+  .notice{margin-top:14px;font-size:0.85rem;color:var(--muted);padding:10px 12px;border:1px dashed var(--border);border-radius:10px;display:none}
+  .notice.on{display:block}
+  .notice b{color:var(--ink)}
+  .status{margin-top:18px;display:none}
+  .status.on{display:block}
+  .loading{display:flex;align-items:center;gap:10px;color:var(--muted);font-size:0.9rem}
+  .spinner{width:16px;height:16px;border-radius:50%;border:2px solid var(--border);border-top-color:var(--red);animation:spin .7s linear infinite;flex:none}
+  @keyframes spin{to{transform:rotate(360deg)}}
+  .error{color:#f5f5f5;background:#1b1b1b;border:1px solid #3a3a3a;border-radius:12px;padding:12px 14px;font-size:0.9rem}
+  .error code{background:var(--field)}
+  .result{text-align:left}
+  .result-header{display:flex;align-items:center;gap:10px;flex-wrap:wrap;margin-bottom:12px}
+  .platform-badge{display:inline-flex;align-items:center;font-size:0.75rem;font-weight:700;padding:3px 10px;border-radius:999px;color:#000}
+  .platform-badge svg{width:12px;height:12px;margin-right:4px}
+  .result-title{font-size:0.95rem;font-weight:600;word-break:break-word}
+  .result-author{font-size:0.85rem;color:var(--muted)}
+  .preview{background:#000;border-radius:12px;overflow:hidden;display:flex;justify-content:center;max-height:380px}
+  .preview video,.preview img{max-width:100%;max-height:380px;display:block}
+  .quality{margin-top:14px;display:none;align-items:center;gap:8px;flex-wrap:wrap}
+  .quality.on{display:flex}
+  .quality label{font-size:0.85rem;color:var(--muted);font-weight:600}
+  .quality select{font:inherit;font-size:0.85rem;color:var(--ink);background:var(--field);border:1px solid var(--border);border-radius:8px;padding:8px 10px;cursor:pointer;outline:none;-webkit-appearance:none;appearance:none}
+  .quality select:focus{border-color:var(--red)}
+  .quality small{color:var(--muted);font-size:0.8rem}
+  .progress-track{margin-top:14px;background:var(--field);border-radius:999px;height:6px;overflow:hidden;display:none}
+  .progress-track.on{display:block}
+  .progress-fill{height:100%;width:0;background:linear-gradient(90deg,var(--red),var(--red-dark));transition:width .15s}
+  .progress-text{margin-top:6px;font-size:0.8rem;color:var(--muted);display:none}
+  .progress-text.on{display:block}
+  .meta-row{display:flex;justify-content:space-between;align-items:center;margin:14px 0 4px;gap:12px;flex-wrap:wrap}
+  .meta-row small{color:var(--muted);font-size:0.85rem}
+  .done{color:var(--muted);font-size:0.85rem;display:flex;align-items:center;gap:6px}
+  .done svg{width:14px;height:14px;color:var(--ink)}
+  .actions{margin-top:10px;display:flex;gap:4px;align-items:center}
+  .history{margin-top:16px;border-top:1px solid var(--border);padding-top:14px;display:none}
+  .history.on{display:block}
+  .hist-title{font-size:0.8rem;font-weight:600;color:var(--muted);margin-bottom:8px}
+  .chips{display:flex;flex-wrap:wrap;gap:8px}
+  .chip{display:inline-flex;align-items:center;gap:6px;background:var(--field);border:1px solid var(--border);border-radius:999px;padding:6px 12px;font-size:0.8rem;color:var(--ink);cursor:pointer}
+  .chip:hover{border-color:var(--red)}
+  .debug{margin-top:14px;font-size:0.78rem;color:var(--muted)}
+  .debug details{border:1px dashed var(--border);border-radius:10px;padding:10px 12px}
+  .debug summary{cursor:pointer}
+  .debug pre{margin-top:8px;font-family:"SFMono-Regular",Consolas,monospace;font-size:.78rem;white-space:pre-wrap;word-break:break-all}
+  .toast{position:fixed;left:50%;bottom:max(24px,env(safe-area-inset-bottom));transform:translateX(-50%);background:#f5f5f5;color:#000;border-radius:10px;padding:10px 16px;font-size:0.9rem;box-shadow:0 8px 24px rgba(0,0,0,.25);opacity:0;pointer-events:none;transition:opacity .25s;z-index:100;max-width:calc(100vw - 40px);text-align:center}
+  .toast.on{opacity:1}
+  section{margin-top:48px}
+  section h2{font-size:1.3rem;font-weight:800;letter-spacing:-0.01em;margin-bottom:4px}
+  section .lead{color:var(--muted);margin-bottom:18px;font-size:.95rem}
+  .kw-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(220px,1fr));gap:14px;margin-top:18px}
+  .kw-grid div{background:var(--surface);border:1px solid var(--border);border-radius:12px;padding:16px}
+  .kw-grid h3{font-size:1rem;margin-bottom:6px}
+  .kw-grid p{color:var(--muted);font-size:.9rem}
+  .how ol{list-style:none;counter-reset:step}
+  .how li{counter-increment:step;display:flex;gap:14px;margin-bottom:14px}
+  .how li::before{content:counter(step);flex:none;width:26px;height:26px;border-radius:50%;background:var(--red);color:#fff;font-size:0.9rem;font-weight:700;display:flex;align-items:center;justify-content:center;margin-top:2px}
+  .how b{display:block}
+  .how p{color:var(--muted);font-size:0.9rem}
+  .plats{display:flex;flex-wrap:wrap;gap:8px;margin-top:14px}
+  .plats .p{display:inline-flex;align-items:center;gap:6px;background:var(--surface);border:1px solid var(--border);border-radius:10px;padding:10px 14px;font-size:0.9rem;font-weight:600}
+  .plats .p small{font-weight:400;color:var(--muted);font-size:0.8rem}
+  .faq details{background:var(--surface);border:1px solid var(--border);border-radius:12px;padding:14px 16px;margin-bottom:10px}
+  .faq summary{cursor:pointer;font-weight:600;font-size:0.95rem;list-style:none}
+  .faq summary::-webkit-details-marker{display:none}
+  .faq summary::before{content:"+ ";color:var(--red);font-weight:700}
+  .faq details[open] summary::before{content:"– "}
+  .faq p{color:var(--muted);font-size:0.9rem;margin-top:8px}
+  .footer{border-top:1px solid var(--border);margin-top:64px;padding:24px 20px calc(24px + env(safe-area-inset-bottom));color:var(--muted);font-size:0.8rem;text-align:center}
+  @media(max-width:560px){.wrap{padding-top:26px}.card{padding:18px}.row{flex-direction:column}.row input{font-size:1rem;padding:14px}.btn{width:100%}.nav-links{gap:14px}.nav-links a:last-child{display:none}.examples{align-items:flex-start}.actions .text-link,.sample,.chip{min-height:44px}}
+</style>
+</head>
+<body>
+<header class="header"><div class="header-inner">
+  <a class="brand" href="#"><img src="bat-logo.png" alt="BatSaver logo" class="logo-img" width="28" height="28"><span>BatSaver</span></a>
+  <nav class="nav-links"><a href="#how">How it works</a><a href="#faq">FAQ</a></nav>
+</div></header>
+
+<main class="wrap">
+  <div class="hero">
+    <h1>Save videos from <span class="red">every platform</span></h1>
+    <p>BatSaver — paste a link from TikTok, YouTube, Instagram, X, Reddit, Pinterest or any site, save the original. No watermark, no sign-up.</p>
+    <div class="platforms-row">
+      <span class="pp" data-p="tiktok">TikTok</span>
+      <span class="pp" data-p="youtube">YouTube</span>
+      <span class="pp" data-p="instagram">Instagram</span>
+      <span class="pp" data-p="twitter">X / Twitter</span>
+      <span class="pp" data-p="reddit">Reddit</span>
+      <span class="pp" data-p="pinterest">Pinterest</span>
+      <span class="pp" data-p="facebook">Facebook</span>
+      <span class="pp" data-p="vimeo">Vimeo</span>
+      <span class="pp" data-p="twitch">Twitch</span>
+      <span class="pp">and more…</span>
+    </div>
+  </div>
+
+  <div class="card">
+    <div class="label"><span>Paste a link</span><small>free · no sign-up</small></div>
+    <form id="dlForm">
+      <div class="row">
+        <input id="url" type="text" inputmode="url" placeholder="Paste any video or image link…" autocomplete="off" spellcheck="false" aria-label="Video link">
+        <button class="btn" id="go" type="submit"><svg viewBox="0 0 24 24" fill="currentColor"><path d="M11 3a1 1 0 1 1 2 0v9.6l3.3-3.3a1 1 0 1 1 1.4 1.4l-5 5a1 1 0 0 1-1.4 0l-5-5a1 1 0 1 1 1.4-1.4L11 12.6V3zM4 17a1 1 0 1 1 2 0v2h12v-2a1 1 0 1 1 2 0v2a2 2 0 0 1-2 2H6a2 2 0 0 1-2-2v-2z"/></svg> Download</button>
+      </div>
+      <p class="examples"><button type="button" class="sample" data-sample="https://www.youtube.com/watch?v=dQw4w9WgXcQ">try a sample link</button></p>
+      <div class="copy-help"><details>
+        <summary>Where do I copy the link from?</summary>
+        <p><b>TikTok:</b> open the video → Share → Copy link.</p>
+        <p><b>YouTube:</b> open the video → Share → Copy link.</p>
+        <p><b>Instagram:</b> open the reel/post → tap ⋯ → Copy link.</p>
+        <p><b>X / Twitter:</b> open the tweet → Share → Copy link.</p>
+        <p><b>Reddit:</b> open the post → Share → Copy link.</p>
+        <p><b>Pinterest:</b> open the pin → Share → Copy link.</p>
+      </details></div>
+    </form>
+    <p class="notice" id="notice"></p>
+
+    <div class="status" id="loading"><div class="loading"><span class="spinner"></span><span id="loadingText">Resolving link…</span></div></div>
+    <div class="status" id="error"><div class="error" id="errorText"></div></div>
+
+    <div class="status" id="result">
+      <div id="resultHeader" class="result-header"></div>
+      <div class="preview" id="preview"></div>
+      <div class="quality" id="qualityRow"><label for="quality">Quality</label><select id="quality"></select><small id="qualityNote"></small></div>
+      <div class="progress-track" id="progressTrack"><div class="progress-fill" id="progressFill"></div></div>
+      <div class="progress-text" id="progressText"></div>
+      <div class="meta-row"><small id="fileInfo"></small><div class="done" id="doneMsg"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3"><path d="M4 12l5 5L20 6"/></svg> Ready to save</div></div>
+      <div class="actions">
+        <button class="btn" id="save"><svg viewBox="0 0 24 24" fill="currentColor"><path d="M11 3a1 1 0 1 1 2 0v9.6l3.3-3.3a1 1 0 1 1 1.4 1.4l-5 5a1 1 0 0 1-1.4 0l-5-5a1 1 0 1 1 1.4-1.4L11 12.6V3zM4 17a1 1 0 1 1 2 0v2h12v-2a1 1 0 1 1 2 0v2a2 2 0 0 1-2 2H6a2 2 0 0 1-2-2v-2z"/></svg> Save file</button>
+        <button class="text-link" id="again" type="button">Download another</button>
+      </div>
+      <p class="fallback" id="fallback" hidden="true" style="margin-top:12px;font-size:0.85rem;color:var(--muted)">Couldn’t auto-fetch the video. <a id="openOriginal" target="_blank" rel="noopener" href="#"></a> to save it from there.</p>
+      <div class="history" id="history"><div class="hist-title">Saved this session</div><div class="chips" id="chips"></div></div>
+    </div>
+
+    <div class="debug" id="debug"><details><summary>debug</summary><pre id="debugLog"></pre></details></div>
+  </div>
+
+  <section class="how" id="how"><h2>How it works</h2><p class="lead">Three steps, about ten seconds.</p>
+    <ol>
+      <li><div><b>Copy the link</b><p>In any app, tap Share and copy the link — or copy from the address bar in a browser.</p></div></li>
+      <li><div><b>Paste it here</b><p>The tool detects the platform and fetches the original media.</p></div></li>
+      <li><div><b>Pick quality and save</b><p>If there are multiple qualities, choose one. Tap Save file and it's yours.</p></div></li>
+    </ol>
+  </section>
+
+  <section class="plats-section" id="platforms"><h2>Supported platforms</h2><p class="lead">Pinterest, Vimeo, Reddit and any page with standard video tags save everywhere. YouTube, TikTok, Instagram and X often hide or encrypt their streams — on free public hosts you'll get a thumbnail with an “Open on…” link; running BatSaver on your own PC (Start BatSaver.bat, with yt-dlp) downloads those too.</p>
+    <div class="plats">
+      <div class="p" data-p="tiktok" style="border-color:#333">TikTok <small>· videos, slideshows</small></div>
+      <div class="p" data-p="youtube" style="border-color:#2b2b2b">YouTube <small>· videos, Shorts</small></div>
+      <div class="p" data-p="instagram" style="border-color:#2b2b2b">Instagram <small>· reels, stories, posts</small></div>
+      <div class="p" data-p="twitter" style="border-color:#2b2b2b">X / Twitter <small>· video clips, GIFs</small></div>
+      <div class="p" data-p="reddit" style="border-color:#2b2b2b">Reddit <small>· video, GIF, image posts</small></div>
+      <div class="p" data-p="pinterest" style="border-color:#2b2b2b">Pinterest <small>· videos, GIFs, images</small></div>
+    </div>
+  </section>
+
+  <section class="kw" id="savers"><h2>BatSaver works as every video saver</h2><p class="lead">One tool for all your “save that” moments — the keywords below all describe what this site does.</p><div class="kw-grid">
+<div><h3>Pinterest video saver</h3><p>Save Pinterest videos, GIFs and images in HD — pick any quality, no watermark.</p></div>
+<div><h3>YouTube video saver</h3><p>Grab YouTube videos and Shorts at the best quality available for free.</p></div>
+<div><h3>TikTok video saver</h3><p>Download TikTok videos and photo slideshows without a watermark.</p></div>
+<div><h3>Instagram video saver</h3><p>Save Instagram reels, stories and feed posts directly to your device.</p></div>
+<div><h3>X / Twitter video saver</h3><p>Keep X video clips, GIFs and images on your phone or computer.</p></div>
+<div><h3>Reddit video saver</h3><p>Save Reddit videos, GIFs and image posts with a single paste.</p></div>
+</div></section>
+  <section class="faq" id="faq"><h2>FAQ</h2>
+    <details><summary>Which platforms are supported?</summary><p>BatSaver is a Pinterest video saver, YouTube video saver, TikTok video saver, Instagram video saver, X/Twitter video saver, Reddit video saver — plus any website with standard video/image tags.</p></details>
+    <details><summary>Does the download have a watermark?</summary><p>No. It downloads the original file directly from the platform's servers.</p></details>
+    <details><summary>Will it work on my phone?</summary><p>Yes — iOS Safari, Chrome on Android, and all modern mobile browsers.</p></details>
+    <details><summary>The video plays instead of downloading — what do I do?</summary><p>On a computer, right-click and choose "Save video as…". On iPhone, hold the video and tap "Save Video". On Android, tap the ⋮ menu and choose "Download".</p></details>
+    <details><summary>Why does YouTube only give me a thumbnail sometimes?</summary><p>YouTube now encrypts its video streams, so a free static tool can't reliably grab the file. When that happens you'll see the thumbnail with an "Open in YouTube" link.</p></details>
+    <details><summary>Can I download private videos?</summary><p>Only public content can be downloaded. Private or restricted content requires the owner's permission.</p></details>
+  </section>
+</main>
+
+<div class="toast" id="toast"></div>
+<footer class="footer"><p>BatSaver · a free tool for personal use · media belongs to whoever posted it</p></footer>
+
+<script>
+(function(){
+"use strict";
+var API = "/api"; // "/api" on Netlify/server; "" when same-origin proxy only
+var input = document.getElementById("url");
+var form = document.getElementById("dlForm");
+var goBtn = document.getElementById("go");
+var errEl = document.getElementById("error"), errTx = document.getElementById("errorText");
+var loadEl = document.getElementById("loading"), loadTx = document.getElementById("loadingText");
+var resEl = document.getElementById("result"), preview = document.getElementById("preview");
+var qRow = document.getElementById("qualityRow"), qSel = document.getElementById("quality"), qNote = document.getElementById("qualityNote");
+var resultHeader = document.getElementById("resultHeader");
+var fileInfo = document.getElementById("fileInfo");
+var doneMsg = document.getElementById("doneMsg");
+var saveBtn = document.getElementById("save"), againBtn = document.getElementById("again");
+var notice = document.getElementById("notice");
+var pTrack = document.getElementById("progressTrack"), pFill = document.getElementById("progressFill"), pText = document.getElementById("progressText");
+var histBox = document.getElementById("history"), chips = document.getElementById("chips"), fallbackEl = document.getElementById("fallback"), openOrig = document.getElementById("openOriginal");
+var dlog = document.getElementById("debugLog"), toastEl = document.getElementById("toast");
+
+var SAVE_ICON = '<svg viewBox="0 0 24 24" fill="currentColor"><path d="M11 3a1 1 0 1 1 2 0v9.6l3.3-3.3a1 1 0 1 1 1.4 1.4l-5 5a1 1 0 0 1-1.4 0l-5-5a1 1 0 1 1 1.4-1.4L11 12.6V3zM4 17a1 1 0 1 1 2 0v2h12v-2a1 1 0 1 1 2 0v2a2 2 0 0 1-2 2H6a2 2 0 0 1-2-2v-2z"/></svg> Save file';
+var LIVE = /^https?:$/.test(location.protocol);
+var IS_IOS = /iPad|iPhone|iPod/i.test(navigator.userAgent)||(navigator.platform==="MacIntel"&&navigator.maxTouchPoints>1);
+var IS_ANDROID = /Android/i.test(navigator.userAgent);
+var IS_STANDALONE = typeof navigator.standalone==="boolean"&&navigator.standalone;
+
+function timedSignal(ms){if(typeof AbortSignal!=="undefined"&&AbortSignal.timeout)return AbortSignal.timeout(ms);var c=new AbortController;setTimeout(function(){c.abort()},ms);return c.signal}
+
+var IC={
+tiktok:'<svg viewBox="0 0 24 24" fill="currentColor"><path d="M13.6 3h3.4c.3 2.4 1.8 4.2 4.5 4.7v3.3a7 7 0 0 1-4.5-1.6v6.4a5.6 5.6 0 1 1-5.6-5.6c.4 0 .7 0 1.1.1v3.5a2.2 2.2 0 1 0 1.1 1.9V3z"/></svg>',
+youtube:'<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="2" y="5.5" width="20" height="13" rx="3.5"/><path d="M10 9.2v5.6l5-2.8z" fill="currentColor" stroke="none"/></svg>',
+instagram:'<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="3" y="3" width="18" height="18" rx="5"/><circle cx="12" cy="12" r="4"/><circle cx="17.3" cy="6.7" r="1.2" fill="currentColor" stroke="none"/></svg>',
+twitter:'<svg viewBox="0 0 24 24" fill="currentColor"><path d="M17.7 3H21l-7.2 8.3L22 21h-6.5l-5.1-6.6L4.6 21H1.2l7.7-8.9L2 3h6.7l4.6 6.1L17.7 3z"/></svg>',
+reddit:'<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="13" r="7"/><path d="M14.8 6l1.7-2.3"/><circle cx="9" cy="12.4" r="1.1" fill="currentColor" stroke="none"/><circle cx="15" cy="12.4" r="1.1" fill="currentColor" stroke="none"/><path d="M9.6 15.3a3.4 3.4 0 0 0 4.8 0"/></svg>',
+pinterest:'<svg viewBox="0 0 24 24" fill="currentColor"><path d="M12 3C7 3 3.5 6.4 3.5 11c0 3.1 1.6 5.8 4.1 7.1-.1-.5-.1-1.2 0-1.8l1-4s-.3-.6-.3-1.4c0-1.3.8-2.3 1.8-2.3.8 0 1.2.6 1.2 1.4 0 .8-.5 2-.9 3.2-.2.9.5 1.7 1.4 1.7 1.7 0 3-1.8 3-4.4 0-2.3-1.6-3.9-4-3.9-2.7 0-4.3 2-4.3 4.1 0 .8.3 1.7.7 2.1.1.1.1.2.1.3l-.2.3-.2.8c0 .2-.1.2-.2.1-1.1-.5-1.8-2-1.8-3.2 0-2.6 1.9-5 5.5-5 2.9 0 5.2 2.1 5.2 4.9 0 2.9-1.9 5.3-4.4 5.3-.9 0-1.7-.5-2-1l-.5 2c-.2.8-.8 1.8-1.1 2.3.8.2 1.7.4 2.6.4 5 0 9-4 9-9s-4-9-9-9z"/></svg>',
+facebook:'<svg viewBox="0 0 24 24" fill="currentColor"><path d="M13.5 21v-7h2.4l.4-2.8h-2.8V9.4c0-.8.2-1.4 1.5-1.4h1.5V5.5c-.3 0-1.2-.1-2.3-.1-2.3 0-3.7 1.3-3.7 3.7v2H8v2.9h2.5v7h3z"/></svg>',
+vimeo:'<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><path d="M3 8l3.4 10L10 8l4 10L20.5 8"/></svg>',
+twitch:'<svg viewBox="0 0 24 24" fill="currentColor"><path d="M4 2h17v11.5l-4 4h-5l-3 3h-2v-3H3V7l1-5zm4.5 4.5v7h2.5V6.5H8.5zM14 6.5V14h2.5V6.5H14z"/></svg>',
+_:'<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 4v11"/><path d="M12 15l4-4M12 15l-4-4"/><path d="M5 20h14"/></svg>'
+};
+function iconSpan(name){var el=document.createElement("span");el.innerHTML=IC[name]||IC._;return el}
+document.querySelectorAll("[data-p]").forEach(function(el){el.insertBefore(iconSpan(el.getAttribute("data-p")),el.firstChild)});
+var state = {result:null, idx:0, originalUrl:null};
+var canDlp=false;
+if(LIVE){fetch(API+"/capabilities",{signal:timedSignal(8000)}).then(function(r){return r.ok?r.json():null}).then(function(j){if(j)canDlp=!!j.ytdlp}).catch(function(){})}
+
+/* ---------- debug ---------- */
+var logs=[];
+function logEvent(msg){logs.push(new Date().toLocaleTimeString()+"  "+msg);if(logs.length>12)logs.shift();dlog.textContent=logs.join("\n")}
+
+/* ---------- toast ---------- */
+var toastTimer=null;
+function showToast(msg){toastEl.textContent=msg;toastEl.classList.add("on");clearTimeout(toastTimer);toastTimer=setTimeout(function(){toastEl.classList.remove("on")},2600)}
+
+/* ---------- helpers ---------- */
+function show(kind,text){[errEl,loadEl,resEl].forEach(function(e){e.classList.remove("on")});var el=kind==="error"?errEl:kind==="loading"?loadEl:resEl;if(text)(kind==="error"?errTx:loadTx).textContent=text;el.classList.add("on")}
+function scrollToCard(){var c=document.querySelector(".card");if(c&&window.scrollTo)c.scrollIntoView({behavior:"smooth",block:"start"})}
+function resetProgress(){pFill.style.width="0%";pTrack.classList.remove("on");pText.classList.remove("on")}
+function setProgress(got,total){if(total>0){var pct=Math.min(100,Math.round(got/total*100));pFill.style.width=pct+"%";pTrack.classList.add("on");pText.classList.add("on");pText.textContent=pct+"%"}else{pFill.style.width="100%";pTrack.classList.add("on");pText.classList.add("on")}}
+function formatSize(n){if(!n)return"";if(n<1024)return n+" B";if(n<1048576)return Math.round(n/1024)+" KB";if(n<1073741824)return(n/1048576).toFixed(1)+" MB";return(n/1073741824).toFixed(2)+" GB"}
+
+function downloadElem(name,blob){
+  var url=URL.createObjectURL(blob);
+  var a=document.createElement("a");a.href=url;a.download=name;document.body.appendChild(a);a.click();
+  if(IS_IOS&&IS_STANDALONE)window.open(url,"_blank");
+  setTimeout(function(){URL.revokeObjectURL(url);a.remove()},4000);
+}
+
+function fetchBlobProgress(url,onProgress,timeout){
+  var endpoint = (url.indexOf(API) === 0) ? url : API+"/proxy?url="+encodeURIComponent(url);
+  if(LIVE){
+    return fetch(endpoint,{signal:timedSignal(timeout||300000)})
+      .then(function(r){
+        if(!r.ok)return null;var ctype=r.headers.get("content-type")||"";var total=parseInt(r.headers.get("Content-Length"),10)||0;
+        if(total>0&&r.body){var reader=r.body.getReader(),chunks=[],received=0;
+          function pump(){return reader.read().then(function(res){if(res.done){onProgress&&onProgress(received,total);return new Blob(chunks,{type:ctype})}chunks.push(res.value);received+=res.value.length;onProgress&&onProgress(received,total);return pump()})}
+          return pump().then(function(b){return{blob:b,type:ctype}})}
+        return r.blob().then(function(b){return{blob:b,type:b.type||ctype}})
+      }).catch(function(){return null})
+  }
+  // file mode: no streaming progress, just wait
+  var builders=(function(u){var e=encodeURIComponent(u);return[
+    function(){return"https://api.cors.lol/?url="+e},
+    function(){return"https://api.allorigins.win/raw?url="+e},
+    function(){return"https://corsproxy.io/?url="+e},
+    function(){return"https://api.codetabs.com/v1/proxy?quest="+e},
+    function(){return"https://cors.isomorphic-git.org/"+u.replace(/^https?:\/\//,"")}
+  ]})(url);
+  return new Promise(function(resolve){
+    var done=false;var pending=builders.length;
+    function finish(v){if(done)return;done=true;resolve(v)}
+    builders.forEach(function(b){var ctrl=new AbortController;var timer=setTimeout(function(){ctrl.abort()},25000);fetch(b(),{signal:ctrl.signal}).then(function(r){if(r.ok)return r.blob().then(function(blob){if(blob.size>0){onProgress&&onProgress(blob.size,blob.size);finish({blob:blob})}else if(--pending===0)finish(null)});else if(--pending===0)finish(null)}).catch(function(){if(--pending===0)finish(null)}).finally(function(){clearTimeout(timer)})});
+    setTimeout(function(){finish(null)},28000);
+  })
+}
+
+/* ---------- platform colors ---------- */
+var PC={tiktok:"#f2f2f2",youtube:"#dcdcdc",instagram:"#f2f2f2",twitter:"#dcdcdc",reddit:"#f2f2f2",pinterest:"#dcdcdc",facebook:"#f2f2f2",vimeo:"#dcdcdc",twitch:"#f2f2f2",linkedin:"#dcdcdc",dailymotion:"#f2f2f2",generic:"#9a9a9a"};
+var PN={tiktok:"TikTok",youtube:"YouTube",instagram:"Instagram",twitter:"X / Twitter",reddit:"Reddit",pinterest:"Pinterest",facebook:"Facebook",vimeo:"Vimeo",twitch:"Twitch",linkedin:"LinkedIn",dailymotion:"Dailymotion",generic:"Web"};
+
+/* ---------- result rendering ---------- */
+function renderResult(data){
+  // header
+  resultHeader.innerHTML="";
+  var badge=document.createElement("span");badge.className="platform-badge";badge.style.background=PC[data.platform]||PC.generic;badge.appendChild(iconSpan(data.platform));badge.appendChild(document.createTextNode(PN[data.platform]||data.platform));resultHeader.appendChild(badge);
+  if(data.title){var t=document.createElement("div");t.className="result-title";t.textContent=data.title;resultHeader.appendChild(t)}
+  if(data.author){var a=document.createElement("div");a.className="result-author";a.textContent=data.author;resultHeader.appendChild(a)}
+
+  // preview
+  preview.innerHTML="";var m=data.media[state.idx||0];
+  if(m&&m.type==="video"){var v=document.createElement("video");v.controls=true;v.playsInline=true;v.preload="metadata";v.src=m.url;preview.appendChild(v)}
+  else if(m&&m.type==="image"){var img=document.createElement("img");img.src=m.url;img.alt="Preview";preview.appendChild(img)}
+  else if(m&&m.type==="gif"){var g=document.createElement("img");g.src=m.url;g.alt="GIF preview";preview.appendChild(g)}
+
+  // quality
+  if(data.media&&data.media.length>1){qRow.classList.add("on");qSel.innerHTML="";data.media.forEach(function(m,i){var o=document.createElement("option");o.value=i;o.textContent=m.quality||(m.type==="video"?"Video "+(i+1):"Option "+(i+1));qSel.appendChild(o)});qSel.value=String(state.idx||0);qNote.textContent="select quality"}
+  else qRow.classList.remove("on");
+
+  // file info
+  var ext="";if(m&&m.url){var em=m.url.match(/\.(\w{3,4})(\?|$)/);if(em)ext=em[1].toUpperCase()}
+  fileInfo.textContent=(PN[data.platform]||"")+(ext?" · "+ext:"");
+  doneMsg.style.visibility="hidden";
+  resetProgress();
+
+  // thumbnail-only (some platforms Encrypt streams): offer "open original"
+  var onlyThumb=data.media.length===1&&data.media[0].type==="image"&&data.media[0].quality==="thumbnail";
+  if(onlyThumb&&state.originalUrl){
+    openOrig.textContent="Open in "+(PN[data.platform]||"the browser")+" ↗";
+    openOrig.href=state.originalUrl;
+    fallbackEl.hidden=false;
+  }else{
+    fallbackEl.hidden=true;
+  }
+}
+
+function selectedMedia(){return state.result&&state.result.media?state.result.media[state.idx||0]:null}
+
+function buildFilename(result,idx){
+  var m=result.media[idx||0];
+  var base=(result.title||result.platform+"_download").replace(/[^a-zA-Z0-9_-]/g,"_").slice(0,60);
+  var ext="";if(m&&m.url){var em=m.url.match(/\.(\w{3,4})(\?|$)/);if(em)ext=em[1];else ext=m.type==="video"?"mp4":m.type==="gif"?"gif":"jpg"}
+  return base+(ext?"."+ext:"");
+}
+
+/* ---------- form submit ---------- */
+form.addEventListener("submit",function(e){
+  e.preventDefault();
+  var url=input.value.trim();
+  if(!url){show("error","Paste a link first.");return}
+  if(!/^https?:\/\/[^\s"<>]+/i.test(url)){show("error","That doesn't look like a URL. Paste the full link from the app or browser.");return}
+  if(!LIVE){show("error","This page needs its built-in server to fetch media. Open it via Start BatSaver.bat (on your PC) or the published website.");return}
+  goBtn.disabled=true;
+  state={result:null,idx:0,originalUrl:url};
+  show("loading",LIVE?"Resolving link…":"Resolving link… (using proxy, can take a few seconds)");
+  var t0=Date.now();
+  fetch(API+"/resolve?url="+encodeURIComponent(url),{signal:timedSignal(30000)})
+    .then(function(r){return r.json().then(function(j){return{status:r.status,body:j}})})
+    .then(function(res){
+      var dur=Math.round((Date.now()-t0)/10)/100;
+      var data=res.body;
+      if(res.status===200&&data.ok){
+        logEvent("resolved "+(data.platform||"?")+" in "+dur+"s");
+        state.result=data;
+        renderResult(data);
+        show("result");
+        scrollToCard();
+      }else{
+        logEvent("resolve "+res.status+" "+String(data.error||"").slice(0,60));
+        var pl=data&&data.platform;
+        if(pl&&pl!=="generic"&&url){
+          errTx.innerHTML="This platform hides its files or blocks free download — try opening the original instead. "+
+            '<a href="'+url+'" target="_blank" rel="noopener">Open on '+(PN[pl]||pl)+" ↗</a><br><small>Tip: running BatSaver on your own PC (“Start BatSaver.bat”) downloads these too.</small>";
+        }else{
+          errTx.textContent=data&&data.error?data.error:"Could not resolve that link — the service may be down or the content may be private.";
+        }
+        show("error");
+      }
+    })
+    .catch(function(err){
+      var msg=err&&err.message?err.message:"Could not resolve that link — the service may be down or the content may be private.";
+      show("error",msg);
+      logEvent("resolve failed: "+msg.slice(0,80));
+    })
+    .finally(function(){goBtn.disabled=false});
+});
+
+qSel.addEventListener("change",function(){
+  state.idx=parseInt(qSel.value,10)||0;
+  var m=selectedMedia();if(!m)return;
+  preview.innerHTML="";
+  if(m.type==="video"){var v=document.createElement("video");v.controls=true;v.playsInline=true;v.preload="metadata";v.src=m.url;preview.appendChild(v)}
+  else{var i=document.createElement("img");i.src=m.url;i.alt="Preview";preview.appendChild(i)}
+  doneMsg.style.visibility="hidden";
+});
+
+saveBtn.addEventListener("click",function(){
+  var m=selectedMedia();if(!m||!state.result)return;
+  saveBtn.disabled=true;saveBtn.textContent="Fetching…";resetProgress();
+  var fname=buildFilename(state.result,state.idx);
+  var HARD={youtube:1,tiktok:1,instagram:1,twitter:1};
+  if(HARD[state.result.platform]===1&&!canDlp){
+    // Hosted (no yt-dlp): these platforms encrypt/block streams — open the original.
+    var or=state.originalUrl||m.url;
+    window.open(or,"_blank");
+    doneMsg.style.visibility="visible";
+    doneMsg.innerHTML='Opened on '+(PN[state.result.platform]||"the site")+' — this platform doesn\u2019t allow free video download here. Run BatSaver on your own PC (“Start BatSaver.bat”) to save these.';
+    saveBtn.disabled=false;saveBtn.innerHTML=SAVE_ICON;resetProgress();
+    return;
+  }
+  var useDl=canDlp&&HARD[state.result.platform]===1&&state.originalUrl;
+  var src=useDl?API+"/dl?url="+encodeURIComponent(state.originalUrl):m.url;
+  fetchBlobProgress(src,setProgress).then(function(r){
+    if(!r||!r.blob){window.open(m.url,"_blank");doneMsg.innerHTML="Opened in a new tab — save it from there";doneMsg.style.visibility="visible";return}
+    downloadElem(fname,r.blob);
+    addHistory(fname,m.url,r.blob.size);
+    var sizeMsg=r.blob.size?" ("+formatSize(r.blob.size)+")":"";
+    var saveHint=IS_IOS?"Saved — check Files › Downloads":IS_ANDROID?"Saved — check your Downloads folder":"Saved — check your Downloads folder";
+    doneMsg.innerHTML=saveHint+sizeMsg;doneMsg.style.visibility="visible";
+  }).finally(function(){saveBtn.disabled=false;saveBtn.innerHTML=SAVE_ICON;resetProgress()});
+});
+
+againBtn.addEventListener("click",function(){state={result:null,idx:0,originalUrl:null};fallbackEl.hidden=true;input.value="";[errEl,loadEl,resEl].forEach(function(e){e.classList.remove("on")});input.focus()});
+document.getElementById("dlForm").addEventListener("click",function(e){var s=e.target.closest(".sample");if(!s)return;e.preventDefault();input.value=s.getAttribute("data-sample");input.focus()});
+
+/* ---------- history ---------- */
+function loadHistory(){try{return JSON.parse(localStorage.getItem("pinsaver-h")||"[]")}catch(e){return[]}}
+function persistHistory(){try{localStorage.setItem("pinsaver-h",JSON.stringify(history.slice(0,8)))}catch(e){}}
+var history=loadHistory();
+function addHistory(name,url,size){history.unshift({name:name,url:url,size:size||0});history=history.slice(0,8);persistHistory();renderHistory()}
+function renderHistory(){if(!history.length){histBox.classList.remove("on");return}histBox.classList.add("on");chips.innerHTML="";history.forEach(function(h){
+  var b=document.createElement("button");b.type="button";b.className="chip";b.setAttribute("data-url",h.url);b.setAttribute("data-name",h.name);b.title="Save again: "+h.name;
+  b.appendChild(document.createTextNode(h.name+(h.size?" · "+formatSize(h.size):"")));chips.appendChild(b);
+})}
+chips.addEventListener("click",function(e){var c=e.target.closest(".chip");if(!c)return;var url=c.getAttribute("data-url"),name=c.getAttribute("data-name");resetProgress();showToast("Saving "+name+"…");fetchBlobProgress(url,setProgress).then(function(r){if(r&&r.blob){downloadElem(name,r.blob);addHistory(name,url,r.blob.size);showToast("Saved "+name)}else showToast("Couldn't save — try again")})});
+
+/* ---------- server detect for file:// ---------- */
+if(!LIVE){
+  fetch(API.replace(/^\/api$/,"")+"/ping",{mode:"no-cors",cache:"no-store"})
+    .then(function(){notice.className="notice on";notice.innerHTML="Built-in server detected — <a href=\"http://127.0.0.1:8787/\">open the fast version</a>…";setTimeout(function(){location.replace("http://127.0.0.1:8787/")},900)})
+    .catch(function(){notice.className="notice on";notice.innerHTML="Tip: for fastest downloads, double-click <b>Start BatSaver.bat</b>."});
+}
+
+renderHistory();input.focus();
+})();
+</script>
+</body>
+</html>
